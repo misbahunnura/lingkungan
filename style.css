@@ -1,0 +1,61 @@
+:root{--bg:#d6edf0;--ink:#0c2f3a;--card:#f4fbfb;--mute:#47666f;--ok:#2fb36d;--warn:#f2a900;--bad:#e5533d;--sc:var(--ok)}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(#bfe6ef,#e4f6f3 60%);color:var(--ink);font-family:'Nunito',sans-serif,system-ui;line-height:1.55;-webkit-tap-highlight-color:transparent;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+h1{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:clamp(40px,7vw,84px);line-height:.95;margin:0;background:linear-gradient(90deg,#0a6e8a,#2fb36d);-webkit-background-clip:text;background-clip:text;color:transparent}
+button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.wrap{width:min(1080px,100% - 32px);margin-inline:auto}
+.head{padding:34px 0 18px;display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.head p{margin:12px 0 0;max-width:46ch;color:var(--mute);font-size:17px}
+.hud{display:flex;flex-wrap:wrap;gap:10px}
+.st{padding:10px 18px;border-radius:18px;background:var(--card);box-shadow:0 6px 0 rgba(12,47,58,.12);min-width:104px}
+.st b{display:block;font-family:'Baloo 2',sans-serif;font-size:28px;line-height:1}
+.st span{font-size:13px;color:var(--mute);font-weight:600}
+.health{min-width:170px;border:2px solid var(--sc);transition:border-color .5s}
+.health b{color:var(--sc);font-size:20px}
+.health i{display:block;height:9px;margin-top:6px;border-radius:9px;background:rgba(12,47,58,.12);overflow:hidden}
+.health i::after{content:"";display:block;height:100%;width:var(--w,100%);background:var(--sc);border-radius:9px;transition:width .3s,background .5s}
+.eco{background:linear-gradient(135deg,#e6fbef,#f4fbfb)}
+.game{position:relative;border-radius:30px;overflow:hidden;box-shadow:0 10px 0 rgba(12,47,58,.14);background:#bfe6f5;touch-action:manipulation}
+canvas{display:block;width:100%;height:clamp(360px,62vh,540px)}
+.fish{cursor:crosshair}.net{cursor:cell}
+.msg{position:absolute;left:50%;top:14px;transform:translateX(-50%);max-width:94%;padding:9px 20px;border-radius:999px;background:var(--ink);color:#fff;font-weight:800;font-size:15px;opacity:0;transition:opacity .4s;pointer-events:none;text-align:center}
+.msg.on{opacity:1}
+.modes{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0}
+.mode{display:flex;align-items:center;gap:8px;padding:12px 22px;border:2.5px solid var(--ink);border-radius:999px;background:none;color:var(--ink);font:800 16px 'Nunito',sans-serif;cursor:pointer;transition:background .2s,color .2s}
+.mode:disabled{opacity:.55;cursor:wait}.mode[aria-pressed=true]{background:var(--ink);color:#fff}
+.mode small{font-weight:600;opacity:.75}
+.over{position:absolute;inset:0;display:none;place-items:center;text-align:center;padding:20px;background:rgba(12,47,58,.86);color:#fff;overflow:auto}
+.over.on{display:grid}
+.over h2{font-family:'Baloo 2',sans-serif;font-size:clamp(34px,6vw,58px);margin:0 0 8px;line-height:1}
+.over p{max-width:44ch;margin:0 auto 14px;opacity:.92}
+.oq{font-style:italic;color:#9ff0c4;font-weight:700}
+.pl{display:grid;gap:8px;max-width:420px;margin:0 auto 18px;text-align:left}
+.pl label{display:flex;gap:10px;align-items:center;padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.12);cursor:pointer;font-weight:700;font-size:15px}
+.pl input{width:20px;height:20px;accent-color:#2fb36d}
+.again{border:0;border-radius:999px;padding:13px 30px;background:#fff;color:var(--ink);font:800 16px 'Nunito',sans-serif;cursor:pointer}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:14px 0 0}
+.legend div{padding:14px 16px;border-radius:16px;background:var(--card);border:2.5px solid transparent;opacity:.55;transition:opacity .3s,border-color .3s}
+.legend div.on{opacity:1;border-color:var(--c)}
+.legend [data-s="0"]{--c:var(--ok)}.legend [data-s="1"]{--c:var(--warn)}.legend [data-s="2"]{--c:var(--bad)}
+.legend b{display:block;font-size:17px}.legend span{font-size:14px;color:var(--mute)}
+.shop{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 0}.up{padding:10px 16px;border-radius:16px;border:2px dashed var(--ink);background:var(--card);color:var(--ink);font:700 14px 'Nunito',sans-serif;cursor:pointer}.up:disabled{opacity:.5;cursor:not-allowed}.up:not(:disabled){border-style:solid;background:#fff6d6}
+.tipbar{margin:16px 0 0;padding:16px 20px;border-radius:20px;background:var(--card);color:var(--mute)}
+.tipbar p{margin:0}
+.badges{margin:16px 0 0;padding:16px 20px;border-radius:20px;background:var(--card)}
+.badges h3{margin:0 0 10px;font:800 18px 'Baloo 2',sans-serif}.badges h3 span{font:600 13px 'Nunito',sans-serif;color:var(--mute);margin-left:8px}
+.bl{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.bd{padding:12px;border-radius:16px;text-align:center;background:rgba(12,47,58,.06);filter:grayscale(1);opacity:.5;transition:all .4s}
+.bd.on{filter:none;opacity:1;background:linear-gradient(135deg,#e6fbef,#fff6d6);box-shadow:0 4px 0 rgba(12,47,58,.12)}
+.bd b{display:block;font-size:30px;line-height:1.1}.bd strong{display:block;font-size:14px}.bd small{color:var(--mute);font-size:12px}
+.over .bl{max-width:560px;margin:0 auto 18px}.over .bd{color:var(--ink)}.over .bd:not(.on){color:#fff}.over .bd small{color:inherit;opacity:.75}
+.again+.again{margin-left:8px;background:transparent;color:#fff;border:2px solid #fff}
+.moti{margin:16px 0 50px;padding:20px 24px;border-radius:24px;background:linear-gradient(135deg,#0c5d6e,#1f9a63);color:#fff;box-shadow:0 8px 0 rgba(12,47,58,.16)}
+.moti small{display:block;font-weight:800;letter-spacing:.08em;text-transform:uppercase;opacity:.75;font-size:12px}
+.moti p{margin:6px 0 0;font:800 clamp(18px,2.6vw,26px)/1.3 'Baloo 2',sans-serif;transition:opacity .5s}
+footer{text-align:center;padding:0 20px 36px;color:var(--mute);font-size:14px}
+@media(max-width:620px){.st{min-width:0;flex:1 1 40%}.health{flex-basis:100%}
+.over{padding:12px;place-items:start center}.over h2{font-size:30px}.over p{margin-bottom:8px;font-size:14px}
+.over .bl{grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px}.over .bd{padding:6px 4px}.over .bd b{font-size:22px}.over .bd strong{font-size:11px}.over .bd small{font-size:10px}
+.pl{gap:6px;margin-bottom:12px}.pl label{padding:7px 10px;font-size:13px}.again{padding:11px 22px}
+.modes{gap:8px}.mode{padding:10px 16px;font-size:15px}.mode small{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}

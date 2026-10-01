@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sungai Bersih | Game jaga sungai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="head">
+    <div>
+      <h1>Sungai Bersih</h1>
+      <p>Pancing ikan, jaring sampah, dan jaga air tetap bersih. Kalau sungainya mati, ikannya ikut habis. Di dunia nyata, kamu juga bisa jadi penjaganya.</p>
+    </div>
+    <div class="hud" aria-live="polite">
+      <div class="st health"><b id="hC">Aman</b><span>kondisi sungai</span><i id="hb"></i></div>
+      <div class="st"><b id="hW">1</b><span>gelombang</span></div>
+      <div class="st"><b id="hK">0</b><span>koin 🪙</span></div>
+      <div class="st"><b id="hS">0</b><span>skor</span></div>
+      <div class="st"><b id="hF">0</b><span>ikan di sungai</span></div>
+      <div class="st eco"><b id="hT">0</b><span>sampah diangkat ♻️</span></div>
+    </div>
+  </header>
+
+  <div class="game">
+    <canvas id="c" class="net" aria-label="Area permainan sungai"></canvas>
+    <div class="msg" id="msg"></div>
+    <div class="over on" id="start"><div><h2>Sungai Bersih</h2><p>Angkat sampah, hindari boss limbah, dan jaga ikan tetap hidup. Setiap sampah yang kamu angkat adalah latihan untuk peduli di dunia nyata.</p><button class="again" id="go">Mulai main</button></div></div>
+    <div class="over" id="over"><div><h2 id="ot">Sungai tercemar parah</h2><p id="ov"></p><p class="oq" id="oq"></p><p><b>Aksi nyata hari ini, centang kalau kamu mau lakukan:</b></p><div class="pl" id="pl"></div><button class="again" id="ag">Main lagi</button></div></div>
+    <div class="over" id="pause"><div><h2>⏸️ Jeda</h2><p id="pp"></p><div class="bl" id="pbd"></div><button class="again" id="rs">Lanjut main</button><button class="again" id="qt">Selesai main</button></div></div>
+  </div>
+
+  <div class="modes" role="group" aria-label="Pilih alat">
+    <button class="mode" id="mPause">⏸️ Jeda <small>tombol P</small></button>
+    <button class="mode" id="mNet" aria-pressed="true">🧺 Jaring sampah <small>tombol 1</small></button>
+    <button class="mode" id="mFish" aria-pressed="false">🎣 Pancing ikan <small>tombol 2</small></button>
+    <button class="mode" id="mSup">💥 Sapu bersih</button>
+  </div>
+
+  <div class="legend" id="legend" aria-label="Keterangan kebersihan sungai">
+    <div data-s="0"><b>🟢 Aman · kebersihan 67–100%</b><span>Air jernih, tidak tercemar, ikan sehat dan aman dipakai sehari-hari.</span></div>
+    <div data-s="1"><b>🟡 Peringatan · kebersihan 34–66%</b><span>Air mulai tercemar dan ikan mulai pucat. Perlu perhatian dan pengurangan limbah.</span></div>
+    <div data-s="2"><b>🔴 Kotor · kebersihan 0–33%</b><span>Air sangat tercemar, ikan mati, berbahaya bagi kesehatan dan lingkungan.</span></div>
+  </div>
+  <div class="shop" id="shop" aria-label="Toko upgrade"></div>
+  <div class="badges"><h3>🏅 Lencana Penjaga Sungai<span id="btot"></span></h3><div class="bl" id="badges"></div></div>
+  <div class="tipbar" style="margin-bottom:12px"><p><b>Combo:</b> angkat sampah beruntun, makin tinggi makin banyak poin. <b>Boss 🛢️:</b> klik 3 kali sebelum sampai ke kiri. <b>⭐ Ikan langka:</b> 50 poin. <b>Sapu bersih (tombol 3):</b> bersihkan semua sampah sekaligus. <b>Koin 🪙</b> bisa dibelikan upgrade. Awas banjir sampah dan malam hari! <b>🐢 Penyu:</b> jangan diklik. <b>💧 Air murni:</b> klik untuk membersihkan sungai. <b>📋 Misi:</b> selesaikan untuk koin.</p></div>
+  <div class="tipbar"><p id="tip"></p></div>
+  <div class="moti"><small>💚 Pesan untukmu</small><p id="moti"></p></div>
+</div>
+<footer>© 2026 Sungai Bersih</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
